@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
+import GradualBlur from '../components/GradualBlur.astro';
 const { page = 'inicio' } = Astro.props;
 ---
 <!doctype html>
@@ -38,4 +39,30 @@ const { page = 'inicio' } = Astro.props;
  <p class="copyright">© <span id="current-year">2026</span> NORD Café Especial.</p>
 </div></footer>
 <script is:inline src="/js/main.js"></script>
+<GradualBlur
+  position="top"
+  target="page"
+  height="5.5rem"
+  strength={2}
+  layers={8}
+  curve="linear"
+  exponential={true}
+  tint="rgba(246, 240, 230, 0.6)"
+  autoHide={true}
+  zIndex={45}
+  transition:persist
+/>
+<GradualBlur
+  position="bottom"
+  target="page"
+  height="6rem"
+  strength={2}
+  layers={8}
+  curve="linear"
+  exponential={true}
+  tint="rgba(246, 240, 230, 0.6)"
+  autoHide={true}
+  zIndex={40}
+  transition:persist
+/>
 </body></html>
