@@ -11,16 +11,20 @@ const { page = 'inicio' } = Astro.props;
   <title></title>
   <meta name="robots" content="noindex, nofollow" />
   <!-- Pré-carregamentos feitos antes de qualquer análise de prioridade -->
-  <link rel="preload" as="image" href="/images/torra-clara.jpg" />
-  <link rel="preload" as="image" href="/images/torra-media.jpg" />
+  <link rel="preload" as="image" href="/images/torra-clara.webp" />
+  <link rel="preload" as="image" href="/images/torra-media.webp" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
 </head>
 <body>
 <header class="site-header">
  <div class="container nav-wrapper">
-  <a class="brand" href="/" aria-label=""><span class="brand-mark">N</span><span>NORD</span></a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-label=""><span class="sr-invisible"> </span><span></span><span></span></button>
-  <nav id="main-menu" class="main-nav" >
+  <a class="brand" href="/" aria-label="Início NORD"><span class="brand-mark">N</span><span>NORD</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menu de navegação" aria-controls="main-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="main-menu" class="main-nav" aria-label="Navegação principal">
    <a href="/">Início</a><a href="/torras/">Torras</a><a href="/#origem">Experiência</a><a class="nav-cta" href="/torras/">Quero conhecer</a>
   </nav>
  </div>

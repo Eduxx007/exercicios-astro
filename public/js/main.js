@@ -10,16 +10,38 @@ if (year) {
 }
 
 if (menuButton && menu) {
+  const closeMenu = () => {
+    menu.classList.remove("is-open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Abrir menu de navegação");
+  };
+
   menuButton.addEventListener("click", () => {
     const isOpen = menu.classList.toggle("is-open");
     menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-label", isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação");
   });
 
   menuLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("is-open");
-      menuButton.setAttribute("aria-expanded", "false");
-    });
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 720 && menu.classList.contains("is-open")) {
+      closeMenu();
+    }
   });
 }
 

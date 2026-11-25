@@ -1,9 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import torraClara from '../../assets/torra-clara.webp';
+import torraMedia from '../../assets/torra-media.webp';
+import torraIntensa from '../../assets/torra-intensa.webp';
+
 const produtos = [
- {nome:'Torra Clara', perfil:'Notas delicadas e acidez vibrante. Uma pausa leve para dias longos.',img:'/images/torra-clara.jpg',num:'01'},
- {nome:'Torra Média', perfil:'Equilíbrio, doçura e versatilidade. Sua escolha para a rotina.',img:'/images/torra-media.jpg',num:'02'},
- {nome:'Torra Intensa', perfil:'Corpo presente e final prolongado para quem gosta de intensidade.',img:'/images/torra-intensa.jpg',num:'03'},
+ {nome:'Torra Clara', perfil:'Notas delicadas e acidez vibrante. Uma pausa leve para dias longos.',img: torraClara,num:'01'},
+ {nome:'Torra Média', perfil:'Equilíbrio, doçura e versatilidade. Sua escolha para a rotina.',img: torraMedia,num:'02'},
+ {nome:'Torra Intensa', perfil:'Corpo presente e final prolongado para quem gosta de intensidade.',img: torraIntensa,num:'03'},
 ];
 ---
 <BaseLayout page="torras">
@@ -13,7 +18,7 @@ const produtos = [
  </section>
  <section class="container roast-grid">
  {produtos.map((produto)=><article class="roast-product">
-  <img src={produto.img} loading="eager" />
+  <Image src={produto.img} alt={produto.nome} loading="eager" fetchpriority="high" />
   <div class="roast-product-body"><span class="eyebrow">PERFIL {produto.num}</span><h2>{produto.nome}</h2><p>{produto.perfil}</p><a href="/#contato">Ver como escolher</a></div>
  </article>)}
  </section>
