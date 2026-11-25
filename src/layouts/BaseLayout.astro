@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 const { page = 'inicio' } = Astro.props;
 ---
 <!doctype html>
@@ -14,9 +15,10 @@ const { page = 'inicio' } = Astro.props;
   <link rel="preload" as="image" href="/images/torra-clara.webp" />
   <link rel="preload" as="image" href="/images/torra-media.webp" />
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
+  <ClientRouter />
 </head>
 <body>
-<header class="site-header">
+<header class="site-header" transition:persist>
  <div class="container nav-wrapper">
   <a class="brand" href="/" aria-label="Início NORD"><span class="brand-mark">N</span><span>NORD</span></a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menu de navegação" aria-controls="main-menu">
@@ -24,13 +26,13 @@ const { page = 'inicio' } = Astro.props;
     <span></span>
     <span></span>
   </button>
-  <nav id="main-menu" class="main-nav" aria-label="Navegação principal">
+  <nav id="main-menu" class="main-nav" aria-label="Navegação principal" transition:persist>
    <a href="/">Início</a><a href="/torras/">Torras</a><a href="/#origem">Experiência</a><a class="nav-cta" href="/torras/">Quero conhecer</a>
   </nav>
  </div>
 </header>
-<div class="page-content"><slot /></div>
-<footer class="site-footer"><div class="container footer-grid">
+<div class="page-content" transition:animate="fade"><slot /></div>
+<footer class="site-footer" transition:persist><div class="container footer-grid">
  <div><a class="brand brand-footer" href="/"><span class="brand-mark">N</span><span>NORD</span></a><p>Café especial para experiências simples e bem cuidadas.</p></div>
  <ul class="footer-links"><a href="/">Início</a><a href="/torras/">Torras</a><a href="/#origem">Experiência</a><a class="icon-link" href="/torras/"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></ul>
  <p class="copyright">© <span id="current-year">2026</span> NORD Café Especial.</p>
