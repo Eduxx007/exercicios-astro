@@ -616,7 +616,7 @@ a {
 
 /* Vitrine e editorial */
 .roast-intro{padding:90px 0 45px}.roast-intro h1{font:500 clamp(3rem,6vw,6.5rem)/1 Georgia,serif;letter-spacing:-.05em;margin:0 0 20px}.roast-intro p{max-width:600px;color:var(--muted)}
-.roast-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-bottom:100px}.roast-product{border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}.roast-product img{width:100%;height:330px;object-fit:cover}.roast-product-body{padding:25px}.roast-product h2{font:500 2rem Georgia,serif;margin:0 0 10px}.roast-product p{color:var(--muted)}.roast-product a{display:inline-flex;margin-top:12px;text-decoration:underline}
+.roast-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-bottom:100px}.roast-product{border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column}.roast-product img{width:100%;height:330px;object-fit:cover}.roast-product-body{padding:25px;display:flex;flex-direction:column;flex:1}.roast-product h2{font:500 2rem Georgia,serif;margin:0 0 10px}.roast-product p{color:var(--muted);flex:1}.roast-product a{display:inline-flex;margin-top:12px;text-decoration:underline;align-self:flex-start}
 .story-image{width:100%;height:440px;object-fit:cover;border-radius:28px;margin-top:30px}.hero-visual .image-frame img{object-position:center}
 /* Layout para pequenos dispositivos */
 @media(max-width:720px){.roast-grid{grid-template-columns:repeat(3,330px)}.hero-grid{grid-template-columns: minmax(0,1fr)}.hero h1{font-size:4.6rem}.contact-card{min-width:640px}}
